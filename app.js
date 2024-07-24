@@ -6,6 +6,7 @@ const cookieParser = require("cookie-parser");
 
 // Internal Modules
 const { errorHandler } = require("./middlewares/common/errorHandler");
+const usersRouter = require("./router/usersRouter");
 
 const app = express();
 dotenv.config();
@@ -25,8 +26,8 @@ app.use(express.json());
 app.use(cookieParser(process.env.COOKIE_SECRET));
 
 // router setup
-app.use('/users', usersRouter)
-app.use('/services', servicesRouter)
+app.use("/users", usersRouter);
+// app.use("/services", servicesRouter);
 
 // error handler
 app.use(errorHandler);
